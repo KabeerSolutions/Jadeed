@@ -3,6 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DC4276D8-BE64-491B-BE2E-6F6671B2515F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jadeed.Api", "src\Jadeed.Api\Jadeed.Api.csproj", "{57918A2B-54C5-434D-9FF1-1FEDF3A41437}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jadeed.Data", "src\Jadeed.Data\Jadeed.Data.csproj", "{3567C07F-DFE8-4C03-B063-F2B59C9DCFBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jadeed.Domain", "src\Jadeed.Domain\Jadeed.Domain.csproj", "{BC5CEAEF-6861-4D7D-8B08-42D1E9F6FB6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jadeed.Service", "src\Jadeed.Service\Jadeed.Service.csproj", "{8A2120CA-33AF-4C16-899F-61D98D68B3B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{65ABA7CD-FD20-4D32-9382-A046B2167D7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jadeed.Test.Unit", "tests\Jadeed.Test.Unit\Jadeed.Test.Unit.csproj", "{FCEB9FB2-A617-4CCF-85ED-1E774E94AC58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +24,34 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57918A2B-54C5-434D-9FF1-1FEDF3A41437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57918A2B-54C5-434D-9FF1-1FEDF3A41437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57918A2B-54C5-434D-9FF1-1FEDF3A41437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57918A2B-54C5-434D-9FF1-1FEDF3A41437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3567C07F-DFE8-4C03-B063-F2B59C9DCFBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3567C07F-DFE8-4C03-B063-F2B59C9DCFBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3567C07F-DFE8-4C03-B063-F2B59C9DCFBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3567C07F-DFE8-4C03-B063-F2B59C9DCFBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC5CEAEF-6861-4D7D-8B08-42D1E9F6FB6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC5CEAEF-6861-4D7D-8B08-42D1E9F6FB6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC5CEAEF-6861-4D7D-8B08-42D1E9F6FB6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC5CEAEF-6861-4D7D-8B08-42D1E9F6FB6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A2120CA-33AF-4C16-899F-61D98D68B3B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A2120CA-33AF-4C16-899F-61D98D68B3B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A2120CA-33AF-4C16-899F-61D98D68B3B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A2120CA-33AF-4C16-899F-61D98D68B3B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCEB9FB2-A617-4CCF-85ED-1E774E94AC58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCEB9FB2-A617-4CCF-85ED-1E774E94AC58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCEB9FB2-A617-4CCF-85ED-1E774E94AC58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCEB9FB2-A617-4CCF-85ED-1E774E94AC58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{57918A2B-54C5-434D-9FF1-1FEDF3A41437} = {DC4276D8-BE64-491B-BE2E-6F6671B2515F}
+		{3567C07F-DFE8-4C03-B063-F2B59C9DCFBC} = {DC4276D8-BE64-491B-BE2E-6F6671B2515F}
+		{BC5CEAEF-6861-4D7D-8B08-42D1E9F6FB6F} = {DC4276D8-BE64-491B-BE2E-6F6671B2515F}
+		{8A2120CA-33AF-4C16-899F-61D98D68B3B8} = {DC4276D8-BE64-491B-BE2E-6F6671B2515F}
+		{FCEB9FB2-A617-4CCF-85ED-1E774E94AC58} = {65ABA7CD-FD20-4D32-9382-A046B2167D7F}
 	EndGlobalSection
 EndGlobal
