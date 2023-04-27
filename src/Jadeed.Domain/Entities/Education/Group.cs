@@ -17,6 +17,7 @@ namespace Jadeed.Domain.Entities
         public DateTime StartDate { get; set;}
 
         // Adding EF core relationship
-        public ICollection<LessonDay> lessonDays { get; set; }
+        public ICollection<LessonDay> LessonDays { get; set; }
+        public ICollection<UserGroup> UserGroups { get; set; }
     }
 }
