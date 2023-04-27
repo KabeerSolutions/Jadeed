@@ -15,11 +15,8 @@ namespace Jadeed.Domain.Entities.Finance
 
         public decimal Amount { get; set; }
         public int PaidLessonCount { get; set; }
-        [Range(1,24)]
-        public DateTime PaidUntil { get; set; }
 
         [StringLength(maximumLength:350)]
         public string Description { get; set; } = string.Empty;
-
    }
 }
