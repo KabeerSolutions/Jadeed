@@ -17,7 +17,6 @@ namespace Jadeed.Domain.Entities
         public string Description { get; set; }
         public LessonDayProgressType ProgressType { get; set; }
 
-
         // EF Core Felationship
         public ICollection<StudentAttendence> StudentAttendences { get; set; }
     }
