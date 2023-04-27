@@ -404,8 +404,6 @@ FodyWeavers.xsd
 ## Visual studio for Mac
 ##
 
-
-# globs
 Makefile.in
 *.userprefs
 *.usertasks
@@ -477,4 +475,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # migrations folder
-*/Migrations
+*/Migrations/
