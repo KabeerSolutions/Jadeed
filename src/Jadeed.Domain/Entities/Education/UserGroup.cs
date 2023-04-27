@@ -10,5 +10,7 @@ namespace Jadeed.Domain.Entities.Education
 
         public long GroupId { get; set; }
         public Group Group { get; set; }
+
+        public DateTime PaidUntill { get; set; }
     }
 }
