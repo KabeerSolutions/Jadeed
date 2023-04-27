@@ -1,4 +1,5 @@
 ﻿using Jadeed.Domain.Commons;
+using Jadeed.Domain.Entities.Education;
 using Jadeed.Domain.Entities.Finance;
 using Jadeed.Domain.Enums;
 using System.ComponentModel.DataAnnotations;
@@ -27,7 +28,7 @@ namespace Jadeed.Domain.Entities.Users
 
         // EF Core conventions to include relations
         public ICollection<TeacherDetail> Teachers { get; set; }
-        public ICollection<Payment> Payments { get; set; }
         public ICollection<StudentAttendence> Attendences { get; set; }
+        public ICollection<UserGroup> UserGroups { get; set; }
     }
 }
