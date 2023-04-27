@@ -15,5 +15,8 @@ namespace Jadeed.Domain.Entities
         public Room Room { get; set; }
         public DateTime StartingAt { get; set; }
         public DateTime StartDate { get; set;}
+
+        // Adding EF core relationship
+        public ICollection<LessonDay> lessonDays { get; set; }
     }
 }

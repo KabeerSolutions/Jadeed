@@ -8,5 +8,8 @@ namespace Jadeed.Domain.Entities.Management
         public long BranchId { get; set; }
         public Branch Branch { get; set; }
         public int Capacity { get; set; }
+
+        // Adding EF Core Relationship
+        public ICollection<Group> Groups { get; set; }
     }
 }
