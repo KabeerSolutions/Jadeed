@@ -18,5 +18,7 @@ namespace Jadeed.Domain.Entities.Finance
 
         [StringLength(maximumLength:350)]
         public string Description { get; set; } = string.Empty;
+
+
     }
 }
