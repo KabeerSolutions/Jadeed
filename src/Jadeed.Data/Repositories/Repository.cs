@@ -99,7 +99,7 @@ namespace Jadeed.Data.Repositories
         /// <param name="expression"></param>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public async ValueTask<T> UpdateAsync(Expression<Func<T, bool>> expression, T entity)
+        public T Update(Expression<Func<T, bool>> expression, T entity)
         {
             EntityEntry<T> entry = this.context.Update(entity);
 
