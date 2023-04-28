@@ -2,6 +2,7 @@
 using Jadeed.Data.IRepositories;
 using Jadeed.Domain.Commons;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Linq.Expressions;
 
 namespace Jadeed.Data.Repositories
@@ -17,39 +18,92 @@ namespace Jadeed.Data.Repositories
             dbSet = context.Set<T>();
         }
 
-        public ValueTask<bool> DeleteAsync(Expression<Func<T, bool>> expression)
+        /// <summary>
+        /// Inserts element to a table and keep track of it until change saved
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public async ValueTask<T> InsertAsync(T entity)
         {
-            throw new NotImplementedException();
+            EntityEntry<T> entry = await this.dbSet.AddAsync(entity);
+
+            return entry.Entity;
+        }
+        public async ValueTask<bool> DeleteAsync(Expression<Func<T, bool>> expression)
+        {
+            var entity = await this.GetAsync(expression);
+            if (entity is not null)
+            {
+                this.dbSet.Remove(entity);
+                return true;
+            }
+            return false;
         }
 
-        public ValueTask<int> DeleteManyAsync(Expression<Func<T, bool>> expression)
+        /// <summary>
+        /// If expression matches method deletes all
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public async ValueTask<int> DeleteManyAsync(Expression<Func<T, bool>> expression)
         {
-            throw new NotImplementedException();
+            var entities = this.dbSet.Where(expression);
+            int numberOfDeletion = entities.Count();
+            if (entities.Any())
+            {
+                this.dbSet.RemoveRange(entities);
+                return numberOfDeletion;
+            }
+            return numberOfDeletion;
         }
 
+        /// <summary>
+        /// Selects all elements from table that matches condition and include relations
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="includes"></param>
+        /// <returns></returns>
         public IQueryable<T> GetAll(Expression<Func<T, bool>> expression, IEnumerable<string> includes = null)
         {
-            throw new NotImplementedException();
+            IQueryable<T> query = expression is null ? this.dbSet : this.dbSet.Where(expression);
+
+            if (includes is not null)
+            {
+                foreach (var include in includes)
+                    query = query.Include(include);
+            }
+            return query;
         }
 
-        public ValueTask<T> GetAsync(Expression<Func<T, bool>> expression, IEnumerable<string> includes = null)
+        /// <summary>
+        /// selects element from a table specified with expression and can includes relations
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="includes"></param>
+        /// <returns></returns>
+        public async ValueTask<T> GetAsync(Expression<Func<T, bool>> expression, IEnumerable<string> includes = null) =>
+            await this.GetAll(expression, includes).FirstOrDefaultAsync();
+      
+        /// <summary>
+        /// Saves tracking changes and write changes to database
+        /// </summary>
+        /// <returns></returns>
+        public async ValueTask SaveAsync()
         {
-            throw new NotImplementedException();
+            await this.context.SaveChangesAsync();
         }
 
-        public ValueTask<T> InsertAsync(T entity)
+        /// <summary>
+        /// Updates entity and keep track of it until change saved
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public async ValueTask<T> UpdateAsync(Expression<Func<T, bool>> expression, T entity)
         {
-            throw new NotImplementedException();
-        }
+            EntityEntry<T> entry = this.context.Update(entity);
 
-        public ValueTask SaveAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public ValueTask<T> UpdateAsync(Expression<Func<T, bool>> expression, T entity)
-        {
-            throw new NotImplementedException();
+            return entry.Entity;
         }
     }
 }
